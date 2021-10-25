@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <style>
+      #password {
+        width: 200px;
+        height: 50px;
+      }
+    </style>
+    <script>
+      function updatePassword() {
+        const password = document.getElementById("password").value;
+        document.getElementById("password-display").innerHTML = password;
+      }
+    </script>
+  </head>
+  <body>
+    <input type="password" name="password" id="password" onchange="updatePassword();"/>
+    <h1 id="password-display"></h1>
+  </body>
+</html>
