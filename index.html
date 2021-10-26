@@ -11,8 +11,13 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         margin: auto;
+
         height: 100vh;
+
+        background-color: #efefef;
+
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
           Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       }
@@ -27,21 +32,17 @@
         margin-bottom: 10px;
 
         border-radius: 4px;
-        /* dark mode */
-        /* border-color: rgba(255, 255, 255, 0.4); */
         border-color: rgba(0, 0, 0, 0.4);
         border-style: solid;
         border-width: 1px;
-        
+
+        background-color: #efefef;
+
         font-size: 16px;
-        /* box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.2); */
-        /* box-shadow: 0px 3px 15px rgba(255, 255, 255, 0.521); */
       }
-      
+
       #password-input:focus {
         outline: none;
-        /* darkmode */
-        /* border-color: rgba(255, 255, 255, 0.8); */
         border-color: rgba(0, 0, 0, 0.8);
       }
 
@@ -58,7 +59,7 @@
         border-width: 1px;
         border-style: solid;
 
-        background-color: rgba(255, 255, 255, 0.08);
+        /* background-color: rgba(255, 255, 255, 0.08); */
       }
 
       #password-display {
@@ -69,7 +70,7 @@
     <script>
       function updatePassword() {
         const password = document.getElementById("password-input").value;
-        document.getElementById("password-display").innerHTML = password;
+        document.getElementById("password-display").innerHTML = password === "" ? "Password will display here..." : password;
       }
     </script>
   </head>
@@ -93,12 +94,21 @@
         window.matchMedia("(prefers-color-scheme: dark)").matches
       ) {
         document.getElementById("root").style.backgroundColor = "#121212";
-        document.getElementById("password-display").style.color = "#fff";
 
-        const passwordInputStyle =
-          document.getElementById("password-input").style;
-        passwordInputStyle.color = "#fff";
+        const passwordInputStyle = document.getElementById("password-input").style;
         passwordInputStyle.backgroundColor = "#121212";
+        passwordInputStyle.borderColor = "rgba(255, 255, 255, 0.4)";
+        passwordInputStyle.color = "#fff";
+
+        const passwordDisplayContainerStyle =
+          document.getElementById("password-display-container").style;
+        passwordDisplayContainerStyle.backgroundColor = "#121212";
+        passwordDisplayContainerStyle.borderColor = "rgba(255, 255, 255, 0.4)";
+        
+        const passwordDisplayStyle =
+          document.getElementById("password-display").style;
+        passwordDisplayStyle.color = "#fff";
+        passwordDisplayStyle.fontWeight = "300";
       }
     </script>
   </body>
