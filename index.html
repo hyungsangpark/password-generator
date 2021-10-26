@@ -58,8 +58,6 @@
         border-color: rgba(0, 0, 0, 0.4);
         border-width: 1px;
         border-style: solid;
-
-        /* background-color: rgba(255, 255, 255, 0.08); */
       }
 
       #password-display {
@@ -68,9 +66,16 @@
       }
     </style>
     <script>
+      /**
+       * onChange listener to the password input field.
+       * Retrieves the value from the password input field and displays it in the password display.
+       *
+       * If the password field is empty, it displays a placeholder text; "Password will display here..."
+       */
       function updatePassword() {
         const password = document.getElementById("password-input").value;
-        document.getElementById("password-display").innerHTML = password === "" ? "Password will display here..." : password;
+        document.getElementById("password-display").innerHTML =
+          password === "" ? "Password will display here..." : password;
       }
     </script>
   </head>
@@ -88,23 +93,25 @@
       </div>
     </div>
     <script>
-      // dark mode
+      // If dark mode, change color scheme to dark scheme.
       if (
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
       ) {
         document.getElementById("root").style.backgroundColor = "#121212";
 
-        const passwordInputStyle = document.getElementById("password-input").style;
+        const passwordInputStyle =
+          document.getElementById("password-input").style;
         passwordInputStyle.backgroundColor = "#121212";
         passwordInputStyle.borderColor = "rgba(255, 255, 255, 0.4)";
         passwordInputStyle.color = "#fff";
 
-        const passwordDisplayContainerStyle =
-          document.getElementById("password-display-container").style;
+        const passwordDisplayContainerStyle = document.getElementById(
+          "password-display-container"
+        ).style;
         passwordDisplayContainerStyle.backgroundColor = "#121212";
         passwordDisplayContainerStyle.borderColor = "rgba(255, 255, 255, 0.4)";
-        
+
         const passwordDisplayStyle =
           document.getElementById("password-display").style;
         passwordDisplayStyle.color = "#fff";
